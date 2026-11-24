@@ -1,0 +1,5 @@
+*.o
+app
+test_mathx
+test_bits
+predict
