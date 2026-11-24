@@ -6,6 +6,7 @@ int clamp(int x, int lo, int hi)
     (void)x; (void)lo; (void)hi;
     if (lo <= x && x <= hi) return x;
     if (x>hi) return hi;
+    if (lo>x) return lo;
     return 0;
 }
 
@@ -24,6 +25,6 @@ unsigned int abs_diff(int a, int b)
 {
     /* TODO. Careful: a - b can overflow for large values. */
     (void)a; (void)b;
-    if (a > b) return a - b;
-    else return b - a;
+    if (a > b) return (unsigned)a - (unsigned)b;
+    else return (unsigned)b - (unsigned)a;
 }

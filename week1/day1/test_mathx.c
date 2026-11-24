@@ -9,6 +9,8 @@ int main(void)
     CHECK_EQ(clamp(-3, 0, 10), 0);
     CHECK_EQ(clamp(42, 0, 10), 10);
     CHECK_EQ(clamp(7, 7, 7), 7);
+    CHECK_EQ(clamp(-3, 2, 10), 2);      /* below range, lo is not 0 */
+    CHECK_EQ(clamp(-50, -10, 10), -10); /* negative range */
 
     printf("max3\n");
     CHECK_EQ(max3(1, 2, 3), 3);
@@ -21,6 +23,7 @@ int main(void)
     CHECK_EQ(abs_diff(10, 3), 7);
     CHECK_EQ(abs_diff(-5, 5), 10);
     CHECK_EQ(abs_diff(INT_MIN, INT_MAX), 4294967295u);
+    CHECK_EQ(abs_diff(INT_MAX, INT_MIN), 4294967295u);  /* the other order */
 
     CHECK_SUMMARY();
 }
